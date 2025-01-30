@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1024px">
+    <link rel="icon" href="image/logo.jpg" type="image/logo.jpg">
+    <title>Khatushyam Construction</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="script/script.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-section">
+            <img src="image/logo.jpg" alt="Khatushyam Construction Logo" class="logo">
+            <span class="site-name">Khatushyam Construction</span>
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Store.html">Store</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li><a href="About-me.html">About Me</a></li>
+                <li><a href="">SM APK</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="search-section">
+        <a href="Store.html">
+            <input type="text" class="search-bar" placeholder="Search...">
+            <button class="clear-button">X</button>
+            <button class="search-button">Search</button>
+         </a><BR><BR><BR>
+        </div>
+    <div class="popup">
+        <p>Product Not Found. Try again.</p>
+        <button class="popup-button">OK</button>
+    </div>
+
+
+    <form action="submit_form.php" method="POST" class="contact-form">
+        <h2>Contact Us</h2>
+        
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+    
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email">
+    
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" id="mobile" name="mobile" pattern="^\+91[0-9]{10}$" required placeholder="Enter your mobile number (e.g. +91XXXXXXXXXX)">
+    
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" required placeholder="Enter your address"></textarea>
+    
+        <label for="city">City:</label>
+        <select name="city" required>
+            <!-- Cities starting with A -->
+             <option value="select">Select</option>
+            <option value="Ahmedabad">Ahmedabad</option>
+            <option value="Agra">Agra</option>
+            <option value="Agartala">Agartala</option>
+            <option value="Aligarh">Aligarh</option>
+            
+            <!-- Cities starting with B -->
+            <option value="Bengaluru">Bengaluru</option>
+            <option value="Bhopal">Bhopal</option>
+            <option value="Bhubaneswar">Bhubaneswar</option>
+            <option value="Belagavi">Belagavi</option>
+            <option value="Bombay">Bombay</option>
+        
+            <!-- Cities starting with C -->
+            <option value="Chennai">Chennai</option>
+            <option value="Chandigarh">Chandigarh</option>
+            <option value="Coimbatore">Coimbatore</option>
+            
+            <!-- Cities starting with D -->
+            <option value="Delhi">Delhi</option>
+            <option value="Dhanbad">Dhanbad</option>
+            <option value="Dehradun">Dehradun</option>
+            
+            <!-- Cities starting with G -->
+            <option value="Gurgaon">Gurgaon</option>
+            <option value="Guwahati">Guwahati</option>
+            
+            <!-- Cities starting with H -->
+            <option value="Hyderabad">Hyderabad</option>
+            
+            <!-- Cities starting with I -->
+            <option value="Indore">Indore</option>
+            
+            <!-- Cities starting with J -->
+            <option value="Jaipur">Jaipur</option>
+            <option value="Jammu">Jammu</option>
+            <option value="Jodhpur">Jodhpur</option>
+            
+            <!-- Cities starting with K -->
+            <option value="Kolkata">Kolkata</option>
+            <option value="Kochi">Kochi</option>
+            <option value="Kanpur">Kanpur</option>
+            <option value="Kochi">Kochi</option>
+            <option value="Kolhapur">Kolhapur</option>
+            
+            <!-- Cities starting with L -->
+            <option value="Lucknow">Lucknow</option>
+            
+            <!-- Cities starting with M -->
+            <option value="Mumbai">Mumbai</option>
+            <option value="Mysuru">Mysuru</option>
+            <option value="Madhurai">Madhurai</option>
+            
+            <!-- Cities starting with N -->
+            <option value="Nagpur">Nagpur</option>
+            <option value="Noida">Noida</option>
+            <option value="Nashik">Nashik</option>
+            
+            <!-- Cities starting with P -->
+            <option value="Pune">Pune</option>
+            <option value="Patna">Patna</option>
+            
+            <!-- Cities starting with R -->
+            <option value="Rajkot">Rajkot</option>
+            <option value="Ranchi">Ranchi</option>
+            <option value="Rourkela">Rourkela</option>
+            
+            <!-- Cities starting with S -->
+            <option value="Surat">Surat</option>
+            <option value="Srinagar">Srinagar</option>
+            <option value="Shivamogga">Shivamogga</option>
+            <option value="Srinagar">Srinagar</option>
+            
+            <!-- Cities starting with T -->
+            <option value="Trivandrum">Trivandrum</option>
+            <option value="Tiruchirappalli">Tiruchirappalli</option>
+            <option value="Thane">Thane</option>
+            
+            <!-- Cities starting with V -->
+            <option value="Vadodara">Vadodara</option>
+            <option value="Visakhapatnam">Visakhapatnam</option>
+            
+            <!-- Cities starting with W -->
+            <option value="Warangal">Warangal</option>
+            
+            <!-- Cities starting with U -->
+            <option value="Udaipur">Udaipur</option>
+            
+        </select>
+        
+        </select>
+    
+        <label for="state">State:</label>
+        <select name="state" required>
+            <option value="select">Select</option>
+            <!-- States starting with A -->
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+            <option value="Assam">Assam</option>
+        
+            <!-- States starting with B -->
+            <option value="Bihar">Bihar</option>
+        
+            <!-- States starting with C -->
+            <option value="Chhattisgarh">Chhattisgarh</option>
+        
+            <!-- States starting with D -->
+            <option value="Goa">Goa</option>
+        
+            <!-- States starting with G -->
+            <option value="Gujarat">Gujarat</option>
+        
+            <!-- States starting with H -->
+            <option value="Haryana">Haryana</option>
+            <option value="Himachal Pradesh">Himachal Pradesh</option>
+        
+            <!-- States starting with J -->
+            <option value="Jharkhand">Jharkhand</option>
+        
+            <!-- States starting with K -->
+            <option value="Karnataka">Karnataka</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+        
+            <!-- States starting with L -->
+            <option value="Maharashtra">Maharashtra</option>
+        
+            <!-- States starting with N -->
+            <option value="Manipur">Manipur</option>
+            <option value="Meghalaya">Meghalaya</option>
+            <option value="Mizoram">Mizoram</option>
+        
+            <!-- States starting with O -->
+            <option value="Nagaland">Nagaland</option>
+        
+            <!-- States starting with P -->
+            <option value="Odisha">Odisha</option>
+        
+            <!-- States starting with Q -->
+            <option value="Punjab">Punjab</option>
+        
+            <!-- States starting with R -->
+            <option value="Rajasthan">Rajasthan</option>
+        
+            <!-- States starting with S -->
+            <option value="Sikkim">Sikkim</option>
+        
+            <!-- States starting with T -->
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Telangana">Telangana</option>
+        
+            <!-- States starting with U -->
+            <option value="Uttarakhand">Uttarakhand</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+        
+            <!-- States starting with W -->
+            <option value="West Bengal">West Bengal</option>
+        </select>
+        
+    
+        <label for="work-name">Work Name:</label>
+        <select id="work-name" name="work-name" required>
+            <option value="select">Select</option>
+            <option value="ALTIEEMA PAINT">ALTIEEMA PAINT</option>
+            <option value="APEX PAINT">APEX PAINT</option>
+            <option value="BAL POP SAHULSUT">BAL POP SAHULSUT</option>
+            <option value="BIRLA PUTTY">BIRLA PUTTY</option>
+            <option value="DICO PAINT">DICO PAINT</option>
+            <option value="DISTAMBER PAINT">DISTAMBER PAINT</option>
+            <option value="FLOOR TILE WORK">FLOOR TILE WORK</option>
+            <option value="GRANITE FLOOR">GRANITE FLOOR</option>
+            <option value="MARBLE FLOOR">MARBLE FLOOR</option>
+            <option value="MELAMINE POLISH">MELAMINE POLISH</option>
+            <option value="OIL PAINT">OIL PAINT</option>
+            <option value="PLASTIC PAINT (ROYAL)">PLASTIC PAINT (ROYAL)</option>
+            <option value="PLASTIC PAINT (SADA)">PLASTIC PAINT (SADA)</option>
+            <option value="POP CORNISH">POP CORNISH</option>
+            <option value="POP FOR CEILLING (Design)">POP FOR CEILLING (Design)</option>
+            <option value="POP FOR CEILLING (Simple)">POP FOR CEILLING (Simple)</option>
+            <option value="POP MOREDING">POP MOREDING</option>
+            <option value="WALL POP FANTY">WALL POP FANTY</option>
+            <option value="WALL TILE WORK">WALL TILE WORK</option>
+        </select>
+        
+    
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required placeholder="Enter your message"></textarea>
+    
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+    
+    <footer class="footer">
+        <p>&copy; 2025 Khatushyam Construction. All rights reserved.</p>
+        <p>Mobile Number: +91 8826853050</p>
+        <p>Email: <a href="mailto:khatushyamconstruction364@gmail.com">khatushyamconstruction364@gmail.com</a></p>
+        <p>Website created by Shashikant</p>
+    </footer>
+</body>
+</html>
