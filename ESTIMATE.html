@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estimate Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding-top: 50px;
+            text-align: center;
+        }
+
+        /* Password Popup */
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup-content {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .popup-content input {
+            padding: 10px;
+            width: 80%;
+            margin: 10px 0;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .popup-content button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .popup-content button:hover {
+            background: #218838;
+        }
+
+        /* Main Content */
+        .container {
+            display: none;
+            background: white;
+            padding: 20px;
+            width: 60%;
+            margin: auto;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="passwordPopup" class="popup">
+        <div class="popup-content">
+            <h2>Enter Password</h2>
+            <input type="password" id="passwordInput" placeholder="Enter Password">
+            <br>
+            <button onclick="checkPassword()">Submit</button>
+        </div>
+    </div>
+
+    <div class="container" id="mainContent">
+        <h2>Estimate Form</h2>
+        <label>Date: <input type="date" id="estimateDate"></label>
+        <label>Name: <input type="text" id="name"></label>
+        <label>Address: <input type="text" id="address"></label>
+        <label>Subject: <input type="text" id="subject"></label>
+        <label>Paint & Repair work at: <input type="text" id="repairAt"></label>
+        <label>TOWER NO: <input type="text" id="tower"></label>
+
+        
+        <table id="workTable">
+            <tr>
+                <th>S.No</th>
+                <th>Description of Work (with material)</th>
+                <th>Quantity (Sqft)</th>
+                <th>Rate in Rs. (including GST)</th>
+                <th>Total Amount (Rs.) (including GST)</th>
+            </tr>
+        </table>
+        <button onclick="addRow()">Add Row</button>
+        <label>TOTAL AMOUNT: <input type="text" id="TOTAL-RS"></label>
+        <button onclick="printEstimate()">Print</button>
+    </div>
+
+    <script>
+        function checkPassword() {
+            var password = document.getElementById("passwordInput").value;
+            if (password === "123") {
+                document.getElementById("passwordPopup").style.display = "none";
+                document.getElementById("mainContent").style.display = "block";
+            } else {
+                alert("Incorrect Password!");
+            }
+        }
+
+        function addRow() {
+            var table = document.getElementById("workTable");
+            var row = table.insertRow(-1);
+            row.innerHTML = `<td>${table.rows.length - 1}</td>
+                             <td><textarea></textarea></td>
+                             <td><input type="number"></td>
+                             <td><input type="number"></td>
+                             <td><input type="number"></td>`;
+        }
+
+        function printEstimate() {
+            var printWindow = window.open('', '', 'width=800,height=600');
+            var content = `<h4 style='text-align: right;'>Date: ${document.getElementById("estimateDate").value}</h4>`;
+            content += `<p><br><br><b><br><b><br><b><br><b><br><b><br><b>To:</b></p>`;
+            content += `<p><b>Name:</b> ${document.getElementById("name").value}</p>`;
+            content += `<p><b>Address:</b> ${document.getElementById("address").value}</p>`;
+            content += `<p><b>Subject:</b> ${document.getElementById("subject").value}</p>`;
+            content += `<p>Greetings of the day</p>`;
+            content += `<p>We are KHATUSHYAM CONSTRUCTION working as construction company in DELHI NCR hereby we are submitting our quotation for the same.</p>`;
+            content += `<p><b>Paint & Repair work at:</b> ${document.getElementById("repairAt").value}</p>`;
+            content += `<p><b>TOWER NO:</b> ${document.getElementById("tower").value}</p>`;
+            content += `<table border='1' style='width:100%; border-collapse: collapse;'>`;
+            content += `<tr><th>S.No</th><th>Description of Work (with material)</th><th>Quantity (Sqft)</th><th>Rate in Rs. (including GST)</th><th>Total Amount (Rs.) (including GST)</th></tr>`;
+          
+            
+            var table = document.getElementById("workTable");
+            for (var i = 1; i < table.rows.length; i++) {
+                var cells = table.rows[i].cells;
+                content += `<tr>`;
+                for (var j = 0; j < cells.length; j++) {
+                    content += `<td>${cells[j].children[0] ? cells[j].children[0].value : cells[j].innerText}</td>`;
+                }
+                content += `</tr>`;
+            }
+            content += `</table>`;
+            content += `<p style='text-align: right;'><b>TOTAL AMOUNT:</b> ${document.getElementById("TOTAL-RS").value}</p>`;
+
+            content += `<div class='footer'><p><b>Warm Regards,</b><br><br></p>`;
+            content += `<p><b>MAHARAJ SINGH</b><br><br><br><b></p>`;
+            content += `<p><b>KHATUSHYAM CONSTRUCTION</b></p></div>`;
+            printWindow.document.write(content);
+            printWindow.document.close();
+            printWindow.print();
+        }
+    </script>
+</body>
+</html>
