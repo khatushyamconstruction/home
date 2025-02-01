@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #000000;
             padding-top: 50px;
             text-align: center;
         }
@@ -134,14 +134,14 @@
     </div>
 
     <div class="container" id="mainContent">
-        <h2>Estimate Form</h2>
-        <label>Date: <input type="date" id="estimateDate"></label>
+        <h2>Estimate Form 1</h2>
+        <label>Space Name: <input type="text" id="spaceName" placeholder="Ex: &lt;br min 13&gt;"></label>
+        <label>Date: <input type="date" id="estimateDate"></label> <!-- Space Name is above Date now -->
         <label>Name: <input type="text" id="name"></label>
         <label>Address: <input type="text" id="address"></label>
         <label>Subject: <input type="text" id="subject"></label>
         <label>Paint & Repair work at: <input type="text" id="repairAt"></label>
         <label>TOWER NO: <input type="text" id="tower"></label>
-
         
         <table id="workTable">
             <tr>
@@ -181,18 +181,18 @@
         function printEstimate() {
             var printWindow = window.open('', '', 'width=800,height=600');
             var content = `<br><br><b><br><b><br><b><br><b><br><b><br><b><h4 style='text-align: right;'>Date: ${document.getElementById("estimateDate").value}</h4>`;
+            content += `<p><b></b> ${document.getElementById("spaceName").value}</p>`; // Space Name in Print
             content += `<p>To:</b></p>`;
             content += `<p><b>Name:</b> ${document.getElementById("name").value}</p>`;
             content += `<p><b>Address:</b> ${document.getElementById("address").value}</p>`;
             content += `<p><b>Subject:</b> ${document.getElementById("subject").value}</p>`;
             content += `<p>Greetings of the day</p>`;
-            content += `<p>We are KHATUSHYAM CONSTRUCTION working as construction company in DELHI NCR hereby we are submitting our quotation for the same.</p>`;
+            content += `<p>We are KHATUSHYAM CONSTRUCTION working as a construction company in DELHI NCR hereby submitting our quotation for the same.</p>`;
             content += `<p><b>Paint & Repair work at:</b> ${document.getElementById("repairAt").value}</p>`;
             content += `<p><b>TOWER NO:</b> ${document.getElementById("tower").value}</p>`;
             content += `<table border='1' style='width:100%; border-collapse: collapse;'>`;
             content += `<tr><th>S.No</th><th>Description of Work (with material)</th><th>Quantity (Sqft)</th><th>Rate in Rs. (including GST)</th><th>Total Amount (Rs.) (including GST)</th></tr>`;
-          
-            
+
             var table = document.getElementById("workTable");
             for (var i = 1; i < table.rows.length; i++) {
                 var cells = table.rows[i].cells;
