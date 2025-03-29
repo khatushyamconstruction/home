@@ -264,38 +264,57 @@
         </div>
     </div>
 <script>
-document.getElementById("contactForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // ✅ Form ke default submit ko rokna
+  document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Page reload hone se rokta hai
 
     var form = this;
     var formData = new FormData(form);
 
-    fetch(form.action, {
-      method: form.method,
+    // ✅ Step 1: Pehle Google Sheet me data save karo
+    fetch("https://script.google.com/macros/s/AKfycbx92nopFzE5OabtBdo7fvjkIbYSwdlzHI55pxFROiBxMyAPwU5U_Y6EpzW1kyv2Xviq/exec", {
+      method: "POST",
       body: formData
     })
-    .then(response => {
-      if (response.ok) {
-        showPopup('successPopup'); // ✅ Success popup dikhaye
-        form.reset(); // ✅ Form reset kare
-      } else {
-        showPopup('errorPopup'); // ❌ Error popup dikhaye
-      }
+    .then(response => response.text())
+    .then(data => {
+      console.log("Google Sheet Response:", data);
+
+      // ✅ Step 2: FormSubmit.co pe data bhejo (New Tab me Open)
+      var emailAction = "https://formsubmit.co/khatushyamconstruction364@gmail.com";
+      var tempForm = document.createElement("form");
+      tempForm.action = emailAction;
+      tempForm.method = "POST";
+      tempForm.target = "_blank"; // ✅ New tab me open karega
+      tempForm.style.display = "none";
+
+      // Form fields add karo
+      formData.forEach((value, key) => {
+        var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = key;
+        input.value = value;
+        tempForm.appendChild(input);
+      });
+
+      document.body.appendChild(tempForm);
+      tempForm.submit(); // FormSubmit.co pe data bhejo
+      document.body.removeChild(tempForm);
+
+      // ✅ Step 3: Success popup dikhao aur form reset karo
+      document.getElementById("successPopup").style.display = "block";
+      form.reset();
     })
     .catch(error => {
-      showPopup('errorPopup'); // ❌ Network ya server error pe error popup dikhaye
       console.error("Error:", error);
+      document.getElementById("errorPopup").style.display = "block";
     });
   });
 
-  function showPopup(popupId) {
-    document.getElementById(popupId).style.display = "flex";
-  }
-
-  function closePopup(popupId) {
-    document.getElementById(popupId).style.display = "none";
+  function closePopup(id) {
+    document.getElementById(id).style.display = "none";
   }
 </script>
+
     <footer class="footer">
         <p>&copy; 2025 Khatushyam Construction. All rights reserved.</p>
         <p>Mobile Number: +91 8826853050</p>
