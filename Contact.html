@@ -8,35 +8,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <script src="script/script.js" defer></script>
 </head>
-    <style>
-  /* ✅ Popup ka styling */
-  .popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #222;
-    color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-    text-align: center;
-    z-index: 1000;
-  }
-  .popup button {
-    margin-top: 10px;
-    padding: 8px 12px;
-    background-color: #ffcc00;
-    border: none;
-    color: black;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  .popup button:hover {
-    background-color: #ff9900;
-  }
-</style>
+    
 <body>
     <header class="header">
         <div class="logo-section">
@@ -277,38 +249,17 @@
     </form>
 <script>
   document.getElementById("contactForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Page reload hone se rokta hai
-
-    var form = this;
-    var formData = new FormData(form);
-
-    // ✅ Step 1: Pehle Google Sheet me data save karo
+    // ✅ Pehle Google Sheet me Data Save karo
+    var formData = new FormData(this);
     fetch("https://script.google.com/macros/s/AKfycbx92nopFzE5OabtBdo7fvjkIbYSwdlzHI55pxFROiBxMyAPwU5U_Y6EpzW1kyv2Xviq/exec", {
       method: "POST",
       body: formData
     })
     .then(response => response.text())
-    .then(data => {
-      console.log("Google Sheet Response:", data);
-
-      // ✅ Step 2: Show success popup
-      document.getElementById("successPopup").style.display = "block";
-
-      // ✅ Step 3: Form reset karo
-      form.reset();
-    })
-    .catch(error => {
-      console.error("Error:", error);
-      alert("❌ Form submission failed. Please try again.");
-    });
+    .then(data => console.log("Google Sheet Response:", data))
+    .catch(error => console.error("Error:", error));
   });
-
-  // ✅ Function to close popup
-  function closePopup() {
-    document.getElementById("successPopup").style.display = "none";
-  }
-</script>
-    <footer class="footer">
+</script>    <footer class="footer">
         <p>&copy; 2025 Khatushyam Construction. All rights reserved.</p>
         <p>Mobile Number: +91 8826853050</p>
         <p>Email: <a href="mailto:khatushyamconstruction364@gmail.com">khatushyamconstruction364@gmail.com</a></p>
