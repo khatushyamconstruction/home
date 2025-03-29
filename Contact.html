@@ -246,21 +246,21 @@
     
         <button type="submit" class="submit-btn">Submit</button>
     </form>
-        <!-- ✅ Success Popup -->
-    <div id="successPopup" class="popup">
-        <div class="popup-content">
-            <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Success">
-            <p>Form Submitted Successfully!<br>Our team will review and contact you.</p>
-            <button onclick="closePopup('successPopup')">OK</button>
+  <!-- Success Popup -->
+    <div class="form-popup-container" id="successPopup">
+        <div class="form-popup-box">
+            <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png" class="popup-img" alt="Success">
+            <div class="popup-message">Form Submitted Successfully!<br>Team will review & contact you.</div>
+            <button class="popup-btn" onclick="closePopup('successPopup')">OK</button>
         </div>
     </div>
 
-    <!-- ❌ Error Popup -->
-    <div id="errorPopup" class="popup">
-        <div class="popup-content">
-            <img src="https://cdn-icons-png.flaticon.com/512/463/463612.png" alt="Error">
-            <p>Error! Form Not Submitted. Try Again.</p>
-            <button onclick="closePopup('errorPopup')">OK</button>
+    <!-- Error Popup -->
+    <div class="form-popup-container" id="errorPopup">
+        <div class="form-popup-box">
+            <img src="https://cdn-icons-png.flaticon.com/512/753/753345.png" class="popup-img" alt="Error">
+            <div class="popup-message">Error! Form Not Submitted.<br>Try Again.</div>
+            <button class="popup-btn" onclick="closePopup('errorPopup')">OK</button>
         </div>
     </div>
 <script>
