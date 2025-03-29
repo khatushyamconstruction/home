@@ -245,28 +245,31 @@
     
         <button type="submit" class="submit-btn">Submit</button>
     </form>
-    <script>
+<script>
 document.getElementById("contactForm").addEventListener("submit", function(event) {
     event.preventDefault(); // Default submit hone se roko
 
     const formData = new FormData(this);
 
-    // Pehla email pe send karo
-    fetch("https://formsubmit.co/khatushyamconstruction364@gmail.com", {
-        method: "POST",
-        body: formData
-    });
-
-    // Dusra email pe send karo
-    fetch("https://formsubmit.co/maharajsingh6680710@gmail.com@gmail.com", {
-        method: "POST",
-        body: formData
-    }).then(() => {
+    // Dono email ek saath bhejne ke liye `Promise.all()` ka use karein
+    Promise.all([
+        fetch("https://formsubmit.co/khatushyamconstruction364@gmail.com", {
+            method: "POST",
+            body: formData
+        }),
+        fetch("https://formsubmit.co/maharajsingh6680710@gmail.com", {
+            method: "POST",
+            body: formData
+        })
+    ]).then(() => {
         alert("Form submitted successfully!");
         window.location.href = "https://khatushyamconstruction.github.io/home/Contact.html"; // Redirect after submission
+    }).catch(error => {
+        alert("Error submitting the form! Try again.");
     });
 });
 </script>
+
     <footer class="footer">
         <p>&copy; 2025 Khatushyam Construction. All rights reserved.</p>
         <p>Mobile Number: +91 8826853050</p>
