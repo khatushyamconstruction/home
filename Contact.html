@@ -246,75 +246,19 @@
     
         <button type="submit" class="submit-btn">Submit</button>
     </form>
-  <!-- Success Popup -->
-    <div class="form-popup-container" id="successPopup">
-        <div class="form-popup-box">
-            <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png" class="popup-img" alt="Success">
-            <div class="popup-message">Form Submitted Successfully!<br>Team will review & contact you.</div>
-            <button class="popup-btn" onclick="closePopup('successPopup')">OK</button>
-        </div>
-    </div>
-
-    <!-- Error Popup -->
-    <div class="form-popup-container" id="errorPopup">
-        <div class="form-popup-box">
-            <img src="https://cdn-icons-png.flaticon.com/512/753/753345.png" class="popup-img" alt="Error">
-            <div class="popup-message">Error! Form Not Submitted.<br>Try Again.</div>
-            <button class="popup-btn" onclick="closePopup('errorPopup')">OK</button>
-        </div>
-    </div>
 <script>
   document.getElementById("contactForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Page reload hone se rokta hai
-
-    var form = this;
-    var formData = new FormData(form);
-
-    // ✅ Step 1: Pehle Google Sheet me data save karo
+    // ✅ Pehle Google Sheet me Data Save karo
+    var formData = new FormData(this);
     fetch("https://script.google.com/macros/s/AKfycbx92nopFzE5OabtBdo7fvjkIbYSwdlzHI55pxFROiBxMyAPwU5U_Y6EpzW1kyv2Xviq/exec", {
       method: "POST",
       body: formData
     })
     .then(response => response.text())
-    .then(data => {
-      console.log("Google Sheet Response:", data);
-
-      // ✅ Step 2: FormSubmit.co pe data bhejo (New Tab me Open)
-      var emailAction = "https://formsubmit.co/khatushyamconstruction364@gmail.com";
-      var tempForm = document.createElement("form");
-      tempForm.action = emailAction;
-      tempForm.method = "POST";
-      tempForm.target = "_blank"; // ✅ New tab me open karega
-      tempForm.style.display = "none";
-
-      // Form fields add karo
-      formData.forEach((value, key) => {
-        var input = document.createElement("input");
-        input.type = "hidden";
-        input.name = key;
-        input.value = value;
-        tempForm.appendChild(input);
-      });
-
-      document.body.appendChild(tempForm);
-      tempForm.submit(); // FormSubmit.co pe data bhejo
-      document.body.removeChild(tempForm);
-
-      // ✅ Step 3: Success popup dikhao aur form reset karo
-      document.getElementById("successPopup").style.display = "block";
-      form.reset();
-    })
-    .catch(error => {
-      console.error("Error:", error);
-      document.getElementById("errorPopup").style.display = "block";
-    });
+    .then(data => console.log("Google Sheet Response:", data))
+    .catch(error => console.error("Error:", error));
   });
-
-  function closePopup(id) {
-    document.getElementById(id).style.display = "none";
-  }
 </script>
-
     <footer class="footer">
         <p>&copy; 2025 Khatushyam Construction. All rights reserved.</p>
         <p>Mobile Number: +91 8826853050</p>
