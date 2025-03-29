@@ -539,3 +539,70 @@ input:required, select:required, textarea:required {
 .call-now-button:hover {
     background: #0056b3;
 }
+        /* Popup Container */
+        .form-popup-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.4s, visibility 0.4s;
+        }
+
+        /* Popup Box */
+        .form-popup-box {
+            background: white;
+            width: 300px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform: scale(0.7);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Success & Error Images */
+        .popup-img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+
+        /* Message Text */
+        .popup-message {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* OK Button */
+        .popup-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .popup-btn:hover {
+            background: #0056b3;
+        }
+
+        /* Show Popup Class */
+        .show-popup {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .show-popup .form-popup-box {
+            transform: scale(1);
+        }
