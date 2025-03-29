@@ -37,7 +37,7 @@
     </div>
 
 
-    <form action="https://formsubmit.co/khatushyamconstruction364@gmail.com" method="POST" class="contact-form">
+    <form action="https://formsubmit.co/khatushyamconstruction364@gmail.com" id="contactForm" method="POST" class="contact-form">
         <h2>Contact Us</h2>
             <input type="hidden" name="_next" value="https://khatushyamconstruction.github.io/home/Contact.html">
         <label for="name">Full Name:</label>
@@ -245,7 +245,28 @@
     
         <button type="submit" class="submit-btn">Submit</button>
     </form>
-    
+    <script>
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Default submit hone se roko
+
+    const formData = new FormData(this);
+
+    // Pehla email pe send karo
+    fetch("https://formsubmit.co/khatushyamconstruction364@gmail.com", {
+        method: "POST",
+        body: formData
+    });
+
+    // Dusra email pe send karo
+    fetch("https://formsubmit.co/maharajsingh6680710@gmail.com@gmail.com", {
+        method: "POST",
+        body: formData
+    }).then(() => {
+        alert("Form submitted successfully!");
+        window.location.href = "https://khatushyamconstruction.github.io/home/Contact.html"; // Redirect after submission
+    });
+});
+</script>
     <footer class="footer">
         <p>&copy; 2025 Khatushyam Construction. All rights reserved.</p>
         <p>Mobile Number: +91 8826853050</p>
