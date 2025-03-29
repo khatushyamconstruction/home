@@ -246,6 +246,23 @@
     
         <button type="submit" class="submit-btn">Submit</button>
     </form>
+        <!-- ✅ Success Popup -->
+    <div id="successPopup" class="popup">
+        <div class="popup-content">
+            <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Success">
+            <p>Form Submitted Successfully!<br>Our team will review and contact you.</p>
+            <button onclick="closePopup('successPopup')">OK</button>
+        </div>
+    </div>
+
+    <!-- ❌ Error Popup -->
+    <div id="errorPopup" class="popup">
+        <div class="popup-content">
+            <img src="https://cdn-icons-png.flaticon.com/512/463/463612.png" alt="Error">
+            <p>Error! Form Not Submitted. Try Again.</p>
+            <button onclick="closePopup('errorPopup')">OK</button>
+        </div>
+    </div>
 <script>
   document.getElementById("contactForm").addEventListener("submit", function(event) {
     // ✅ Pehle Google Sheet me Data Save karo
