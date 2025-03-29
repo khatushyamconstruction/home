@@ -37,7 +37,7 @@
     </div>
 
 
-    <form action="https://formsubmit.co/khatushyamconstruction364@gmail.com" method="POST" class="contact-form">
+    <form action="https://formsubmit.co/khatushyamconstruction364@gmail.com" id="contactForm" method="POST" class="contact-form">
         <h2>Contact Us</h2>
             <input type="hidden" name="_next" value="https://khatushyamconstruction.github.io/home/Contact.html">
         <label for="name">Full Name:</label>
@@ -245,7 +245,19 @@
     
         <button type="submit" class="submit-btn">Submit</button>
     </form>
-
+<script>
+  document.getElementById("contactForm").addEventListener("submit", function(event) {
+    // ✅ Pehle Google Sheet me Data Save karo
+    var formData = new FormData(this);
+    fetch("https://script.google.com/macros/s/AKfycbx92nopFzE5OabtBdo7fvjkIbYSwdlzHI55pxFROiBxMyAPwU5U_Y6EpzW1kyv2Xviq/exec", {
+      method: "POST",
+      body: formData
+    })
+    .then(response => response.text())
+    .then(data => console.log("Google Sheet Response:", data))
+    .catch(error => console.error("Error:", error));
+  });
+</script>
     <footer class="footer">
         <p>&copy; 2025 Khatushyam Construction. All rights reserved.</p>
         <p>Mobile Number: +91 8826853050</p>
